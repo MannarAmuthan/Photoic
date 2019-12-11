@@ -29,7 +29,8 @@ public class LayerStateUndo extends Undoable {
     @Override
     public void undo() {
         old.setMat(m, r);
-        place.layers.set(index, old);
+        place.p.deleteLayer(place.selected);
+        place.p.addLayer(old, index);
         place.selected=old;
         place.update();
     }
