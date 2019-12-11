@@ -22,18 +22,14 @@ public class ShapingTools {
         
     rectangle=new ToggleButton();rectangle.setTooltip(new Tooltip("Rectangle"));rectangle.setId("Rectangle");
     ImageView rec=new ImageView("Images/rectangle.png");rec.setFitHeight(22);rec.setFitWidth(22);
-    rectangle.setGraphic(rec);
+    rectangle.setGraphic(rec);rectangle.setFocusTraversable(false);
     
     elipse=new ToggleButton();elipse.setTooltip(new Tooltip("Elipse"));elipse.setId("Elipse");
     ImageView cir=new ImageView("Images/circle.png");cir.setFitHeight(22);cir.setFitWidth(22);
-    elipse.setGraphic(cir);
-    
-    polygon=new ToggleButton();polygon.setTooltip(new Tooltip("Polygon"));polygon.setId("Polygon");
-    ImageView pol=new ImageView("Images/polygon.png");pol.setFitHeight(22);pol.setFitWidth(22);
-    polygon.setGraphic(pol);
+    elipse.setGraphic(cir);elipse.setFocusTraversable(false);
     
     list=new ArrayList<>();
-    list.add(rectangle);list.add(elipse);list.add(polygon);
+    list.add(rectangle);list.add(elipse);;
     return list;
     }
     static HBox getShapingTools(){
