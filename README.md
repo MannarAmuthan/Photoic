@@ -1,5 +1,6 @@
 # Photoic
 
+![Photoic Launcher logo](photoic.png)
 
 An Open Source Graphic Editor tool. Layer based image editing software, similar to Adobe's Photoshop
 
