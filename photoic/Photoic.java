@@ -277,6 +277,7 @@ public class Photoic extends Application {
        multiMenu.getItems().addAll(merge);
        layers.setContextMenu(menu);
        layers.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+       //layers.setFocusTraversable(false); 
        return layers;
     }
     
@@ -306,13 +307,12 @@ public class Photoic extends Application {
     MenuItem openFile=new MenuItem("Open Project");
     MenuItem saveFile=new MenuItem("Save");
     MenuItem saveasFile=new MenuItem("Save As");
-    MenuItem quitFile=new MenuItem("Exit");
     
     newFile.setOnAction((ActionEvent event) -> {
         if(layers.getItems().size()>0){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation your saving");
-        alert.setContentText("Do you want to save? /n If you already saved, press NO");
+        alert.setContentText("Do you want to save? (If you already saved, press NO)");
         ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
         
         ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.NO);
@@ -359,7 +359,7 @@ public class Photoic extends Application {
         OpenProject.launch(this);
     });
     imageMenu=ImageMenu.getMenu(imageMenu, this);
-    fileMenu.getItems().addAll(newFile,insert,openFile,saveFile,saveasFile,quitFile);
+    fileMenu.getItems().addAll(newFile,insert,openFile,saveFile,saveasFile);
     menuBar.getMenus().addAll(fileMenu,imageMenu,helpMenu);
     return menuBar;    
         
@@ -371,17 +371,17 @@ public class Photoic extends Application {
         HBox tools=new HBox();
         tools.setSpacing(10);
         ToggleButton eraser=new ToggleButton();ImageView era=new ImageView("Images/eraser.png");era.setFitHeight(22);era.setFitWidth(22);
-        eraser.setGraphic(era);eraser.setId("Eraser");eraser.setTooltip(new Tooltip("Eraser")); 
+        eraser.setGraphic(era);eraser.setId("Eraser");eraser.setTooltip(new Tooltip("Eraser"));eraser.setFocusTraversable(false);
         ToggleButton brush=new ToggleButton();ImageView bru=new ImageView("Images/brush.png");bru.setFitHeight(22);bru.setFitWidth(22);
-        brush.setGraphic(bru);brush.setId("Brush");brush.setTooltip(new Tooltip("Brush"));
+        brush.setGraphic(bru);brush.setId("Brush");brush.setTooltip(new Tooltip("Brush"));brush.setFocusTraversable(false);
         ToggleButton marker=new ToggleButton();ImageView mark=new ImageView("Images/marker.png");mark.setFitHeight(22);mark.setFitWidth(22);
-        marker.setGraphic(mark);marker.setId("Marker");marker.setTooltip(new Tooltip("Marker"));
+        marker.setGraphic(mark);marker.setId("Marker");marker.setTooltip(new Tooltip("Marker"));marker.setFocusTraversable(false);
         ToggleButton ColorPick=new ToggleButton();ImageView buc=new ImageView("Images/ColorPic.png");buc.setFitHeight(22);buc.setFitWidth(22);
-        ColorPick.setGraphic(buc);ColorPick.setId("Color Picker");ColorPick.setTooltip(new Tooltip("Color Picker"));
+        ColorPick.setGraphic(buc);ColorPick.setId("Color Picker");ColorPick.setTooltip(new Tooltip("Color Picker"));ColorPick.setFocusTraversable(false);
         ToggleButton move=new ToggleButton();ImageView mov=new ImageView("Images/move.png");mov.setFitHeight(22);mov.setFitWidth(22);
-        move.setGraphic(mov);move.setId("Move Arrow");move.setTooltip(new Tooltip("Move Arrow"));
+        move.setGraphic(mov);move.setId("Move Arrow");move.setTooltip(new Tooltip("Move Arrow"));move.setFocusTraversable(false);
         ToggleButton text=new ToggleButton();ImageView tex=new ImageView("Images/text.png");tex.setFitHeight(22);tex.setFitWidth(22);
-        text.setId("Text");text.setTooltip(new Tooltip("Text"));text.setGraphic(tex);
+        text.setId("Text");text.setTooltip(new Tooltip("Text"));text.setGraphic(tex);text.setFocusTraversable(false);
         toolGroup=new ToggleGroup();
         ShapingTools.getToggleButtons();
         toolGroup.getToggles().addAll(brush,marker,move,eraser,text,ColorPick);
@@ -450,6 +450,9 @@ public class Photoic extends Application {
         KeyCombination contU= new KeyCodeCombination(KeyCode.U,KeyCodeCombination.CONTROL_ANY);
         KeyCombination contD= new KeyCodeCombination(KeyCode.D,KeyCodeCombination.CONTROL_ANY);
         KeyCombination contC= new KeyCodeCombination(KeyCode.C,KeyCodeCombination.CONTROL_ANY);
+    if(event.getCode()==KeyCode.LEFT||event.getCode()==KeyCode.RIGHT||event.getCode()==KeyCode.UP||event.getCode()==KeyCode.DOWN){
+    //do nothing
+    }    
     if(combUp.match(event)){
     place.moveUp(selected,1);
     Universal.addUndo(new MoveUndo(0,1,selected,place));
