@@ -21,6 +21,43 @@ https://drive.google.com/open?id=12QMqd1MocllqbtcpRnPnmaSKfzWDu4VY
 5.Save As- To export as a image
 
 
-![File Menu](File Menu.png) 
+# Image Menu(Image Adjustments)
+
+1.Brightness
+
+2.Darken Image
+
+3.Blurs- Gaussian Blur, Normal Blur, Median Blur
+
+4.Invert 
+
+5.Threshold
+
+6.Grayscale Image
+
+# Layer Options
+
+1.Copy -copy the current layer
+
+2.Delete- Delete the selected layer
+
+3.Shift Up/Down - Move the layer above or below
+
+4.Merge - Merge the selected layers
+
+5.Settings
+
+# Layer Settings
+
+1.Blend Mode-(not yet implemented)
+
+2.Overlay - Overlay the specified color
+
+3.Stroke- Create borders(Strokes) for the layer
+
+
+
+
+
 
 
