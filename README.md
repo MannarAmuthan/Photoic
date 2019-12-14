@@ -7,6 +7,13 @@ An Open Source Graphic Editor tool. Layer based image editing software, similar 
 For working demo and Tutorial Videos
 https://drive.google.com/open?id=12QMqd1MocllqbtcpRnPnmaSKfzWDu4VY
 
+For Download setup
+https://drive.google.com/open?id=19aLHi617DgjMZObw9eggPw70BpJV-_Av
+
+Open a zip folder, and place all files in a same folder(.exe,.config files)
+
+And you can find JAR in PhotoicFullSetup file.
+
 # Basic Features
 # File Menu
 
