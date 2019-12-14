@@ -42,6 +42,18 @@ And you can find JAR in PhotoicFullSetup file.
 
 6.Grayscale Image
 
+# Toolbar
+
+1.Moving Tool- To Move the layers
+
+2.Brush
+
+3.Eraser
+
+4.Marker- Mark the points, and fill or stroke(outline drawing) the marked region
+
+5.Shaping Tools- For Rectangle, and circle drawing
+
 # Layer Options
 
 1.Copy -copy the current layer
