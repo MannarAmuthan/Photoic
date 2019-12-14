@@ -21,6 +21,6 @@ https://drive.google.com/open?id=12QMqd1MocllqbtcpRnPnmaSKfzWDu4VY
 5.Save As- To export as a image
 
 
-![File Menu](File Menu.png)
+![File Menu](File Menu.png) 
 
 
