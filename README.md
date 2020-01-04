@@ -8,11 +8,11 @@ For working demo and Tutorial Videos
 https://drive.google.com/open?id=12QMqd1MocllqbtcpRnPnmaSKfzWDu4VY
 
 For Download setup
-https://drive.google.com/open?id=19aLHi617DgjMZObw9eggPw70BpJV-_Av
+https://drive.google.com/open?id=1cF8NK5KwHAY4Tq9IcV02yqqRXPXMHhIj
 
 Open a zip folder, and place all files in a same folder(.exe,.config files)
 
-And you can find JAR in PhotoicFullSetup file.
+And you can find JAR also.
 
 # Basic Features
 # File Menu
