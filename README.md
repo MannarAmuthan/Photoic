@@ -12,7 +12,7 @@ https://drive.google.com/open?id=1cF8NK5KwHAY4Tq9IcV02yqqRXPXMHhIj
 
 Open this zip folder, and place all files in a same folder(.exe,.config files)
 
-The project can be build by maven, clone the repo, and install all maven dependencies, ``(this project requires java 14)``
+The project can be build by maven, clone the repo, and install all maven dependencies, ``(this project requires java 14 as minimum version)``
 
 `mvn javafx:compile`
 
