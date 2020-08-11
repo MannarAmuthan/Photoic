@@ -7,12 +7,16 @@ An Open Source Graphic Editor tool. Layer based image editing software, similar 
 For working demo and Tutorial Videos
 https://drive.google.com/open?id=12QMqd1MocllqbtcpRnPnmaSKfzWDu4VY
 
-For Download setup
+For Download setup (for executables)
 https://drive.google.com/open?id=1cF8NK5KwHAY4Tq9IcV02yqqRXPXMHhIj
 
-Open a zip folder, and place all files in a same folder(.exe,.config files)
+Open this zip folder, and place all files in a same folder(.exe,.config files)
 
-And you can find JAR also.
+The project can be build by maven, clone the repo, and install all maven dependencies,
+
+`mvn javafx:compile`
+
+`mvn javafx:run`
 
 # Basic Features
 # File Menu
