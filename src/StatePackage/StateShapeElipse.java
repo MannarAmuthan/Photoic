@@ -6,13 +6,11 @@
 package StatePackage;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import org.opencv.core.Point;
-import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
@@ -39,8 +37,8 @@ public class StateShapeElipse extends State {
     public StateShapeElipse(WorkPlace place) {
         super(place);
         l=new LayerFactory().getImageLayer("",1);
-        Universal.addUndo(new addLayerUndo(place,place.p,l));
-        place.p.addLayer(l,0);
+        Universal.addUndo(new addLayerUndo(place,place.mainWindow,l));
+        place.mainWindow.addLayer(l,0);
         lastPoint=new Point();
         menu=new ContextMenu();
         MenuItem cancel=new MenuItem("Cancel All");
@@ -48,7 +46,7 @@ public class StateShapeElipse extends State {
         MenuItem stroke=new MenuItem("Stroke Shape");
         menu.getItems().addAll(cancel,fill,stroke);
         place.getCanvas().setOnContextMenuRequested((ContextMenuEvent event) -> {
-            menu.show(place.getCanvas(), event.getScreenX(), event.getSceneY());
+            menu.show(place.getMainStage(), event.getScreenX(), event.getSceneY());
         }); 
         cancel.setOnAction((ActionEvent event) -> {
             l.clearMat();
@@ -118,7 +116,7 @@ public class StateShapeElipse extends State {
 
     @Override
     public void onMouseClicked(MouseEvent event, Layer l) {
-        if(menu.isShowing()){menu.hide();} 
+
     }
 
     @Override

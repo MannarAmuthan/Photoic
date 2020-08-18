@@ -12,17 +12,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import org.opencv.core.Scalar;
 import photoic.ImageUtilities;
 import photoic.SelectedRegion;
 import photoic.Universal;
 import photoic.WorkPlace;
-
-import javax.swing.*;
 
 /**
  * @author ELCOT
@@ -41,11 +36,11 @@ public class StatePen extends State{
 		  MenuItem fill = new MenuItem("Fill");
 		  MenuItem stroke = new MenuItem("Stroke");
 		  menu.getItems().addAll(cancel, fill, stroke);
-
+		  menu.setHideOnEscape(true);
 		  place.getCanvas().setOnContextMenuRequested(new EventHandler<ContextMenuEvent>() {
 			   @Override
 			   public void handle(ContextMenuEvent contextMenuEvent){
-					menu.show(place.getCanvas(), contextMenuEvent.getScreenX(), contextMenuEvent.getSceneY());
+					menu.show(place.getMainStage(), contextMenuEvent.getScreenX(), contextMenuEvent.getSceneY());
 			   }
 		  });
 
@@ -57,6 +52,7 @@ public class StatePen extends State{
 					r.drawSelected();
 					place.update();
 					completed = false;
+					menu.hide();
 			   }
 		  });
 		  stroke.setOnAction((ActionEvent event) -> {
@@ -70,6 +66,7 @@ public class StatePen extends State{
 					place.deleteLayer(r.l);
 					place.update();
 					completed = false;
+					menu.hide();
 			   }
 		  });
 		  fill.setOnAction((ActionEvent event) -> {
@@ -82,6 +79,7 @@ public class StatePen extends State{
 					place.deleteLayer(r.l);
 					place.update();
 					completed = false;
+					menu.hide();
 			   }
 		  });
 	 }
@@ -100,9 +98,7 @@ public class StatePen extends State{
 
 	 @Override
 	 public void onMouseClicked(MouseEvent event, Layer l){
-		  if (menu.isShowing()){
-			   menu.hide();
-		  } else{
+
 			   if (!completed){
 					// if pen layer is previously completed, then we have to add for new process
 					if (!place.layers.contains(r.l)){
@@ -117,14 +113,14 @@ public class StatePen extends State{
 					if (r.points.size() > 2 && (r.points.get(r.points.size() - 1) != r.points.get(r.points.size() - 2)))
 						 completed = true;
 			   }
-		  }
+
 	 }
 
 	 @Override
 	 public void onMouseMoved(MouseEvent event, Layer l){
 		  try{
-			   if (event.getX() > r.points.get(0).x - 2 && event.getX() < r.points.get(0).x + 2){
-					if (event.getY() > r.points.get(0).y - 2 && event.getY() < r.points.get(0).y + 2){
+			   if (event.getX() > r.points.get(0).x - 5 && event.getX() < r.points.get(0).x + 5){
+					if (event.getY() > r.points.get(0).y - 5 && event.getY() < r.points.get(0).y + 5){
 						 connected = true;
 					} else
 						 connected = false;

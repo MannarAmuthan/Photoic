@@ -54,7 +54,7 @@ public class StateText extends State{
 		  textBound = new Rect();
 		  menu.getItems().addAll(edit, alig, cancel);
 		  place.getCanvas().setOnContextMenuRequested((ContextMenuEvent event) -> {
-			   menu.show(place.getCanvas(), event.getScreenX(), event.getSceneY());
+			   menu.show(place.getMainStage(), event.getScreenX(), event.getSceneY());
 		  });
 		  cancel.setOnAction((ActionEvent event) -> {
 			   drawed = false;
@@ -117,9 +117,6 @@ public class StateText extends State{
 
 	 @Override
 	 public void onMouseClicked(MouseEvent event, Layer l){
-		  if (menu.isShowing()){
-			   menu.hide();
-		  }
 	 }
 
 	 @Override

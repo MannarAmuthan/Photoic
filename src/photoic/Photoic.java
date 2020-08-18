@@ -53,8 +53,6 @@ public class Photoic extends Application{
 	 Pane root;
 	 static public ArrayList<LayerContainer> layerList;
 	 static public ArrayList<Layer> originalLayers;
-	 static public Stage newProjectwindow, openFilewindow;
-	 HBox adjustmentBar;
 	 Layer selected;
 	 LayerFactory layerFactory;
 	 LayerStyle layerSettings;
@@ -64,11 +62,12 @@ public class Photoic extends Application{
 	 static public ListView<String> layers;
 	 static public HBox fontChooser;
 	 static public NewProject newProject;
+	 public Stage stage;
 
 	 @Override
 	 public void start(Stage primaryStage){
 		  place = new WorkPlace(1000, 600);
-		  place.p = this;
+		  place.mainWindow = this;
 		  layerList = new ArrayList<>();
 		  originalLayers = new ArrayList<>();
 		  layerFactory = new LayerFactory();
@@ -76,6 +75,7 @@ public class Photoic extends Application{
 		  fontChooser = FontChooser.getFontList();
 		  layerSettings = new LayerStyle(place);
 		  newProject = new NewProject(this);
+		  stage=primaryStage;
 		  setUI(primaryStage);
 	 }
 

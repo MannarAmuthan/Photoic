@@ -45,11 +45,7 @@ public class StateEraser extends State {
             double y=event.getY()+l.rectangle.y;
             if(lastPoint!=null){
               Point current=new Point(x,y);
-              int blue=(int)(Universal.currentColor.getBlue()*255);
-              int green=(int)(Universal.currentColor.getGreen()*255);
-              int red=(int)(Universal.currentColor.getRed()*255);
               Erase((int)lastPoint.x,(int)lastPoint.y,(int)current.x,(int)current.y,l);
-              //Imgproc.line(l.backstageMat,lastPoint,current,new Scalar(blue,green,red,255),Universal.strokeWidth);
               lastPoint=current;
               place.update();
             }  

@@ -6,7 +6,6 @@
 package StatePackage;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.ContextMenuEvent;
@@ -36,8 +35,8 @@ public class StateShapeRect extends State {
     public StateShapeRect(WorkPlace place) {
         super(place);
         l=new LayerFactory().getImageLayer("",1);
-        place.p.addLayer(l,0);
-        Universal.addUndo(new addLayerUndo(place,place.p,l));
+        place.mainWindow.addLayer(l,0);
+        Universal.addUndo(new addLayerUndo(place,place.mainWindow,l));
         lastPoint=new Point();
         menu=new ContextMenu();
         MenuItem cancel=new MenuItem("Cancel All");
@@ -45,7 +44,7 @@ public class StateShapeRect extends State {
         MenuItem stroke=new MenuItem("Stroke Shape");
         menu.getItems().addAll(cancel,fill,stroke);
         place.getCanvas().setOnContextMenuRequested((ContextMenuEvent event) -> {
-            menu.show(place.getCanvas(), event.getScreenX(), event.getSceneY());
+            menu.show(place.getMainStage(), event.getScreenX(), event.getSceneY());
         }); 
         cancel.setOnAction((ActionEvent event) -> {
             l.clearMat();
@@ -108,7 +107,7 @@ public class StateShapeRect extends State {
 
     @Override
     public void onMouseClicked(MouseEvent event, Layer l) {
-        if(menu.isShowing()){menu.hide();} 
+
     }
 
     @Override
