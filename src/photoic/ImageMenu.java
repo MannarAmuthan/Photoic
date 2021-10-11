@@ -96,9 +96,9 @@ gra.setOnAction((ActionEvent event) -> {
     else
         AlertDialogue.doAlert("Please select a layer");
 });
-blur.getItems().addAll(gaus,nor,med);
-item.getItems().addAll(bri,dar,blur,inv,thres,gra);
-return item;
+    blur.getItems().addAll(gaus,nor,med);
+    item.getItems().addAll(bri,dar,blur,inv,thres,gra);
+    return item;
 }  
     
 }
